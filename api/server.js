@@ -42,9 +42,6 @@ router.get('/dishes/:_id', (req, res) => {
 
 // insert/update dish
 router.put('/dishes', (req, res) => {
-
-    console.log(req.body);
-
     if (req.body == null) {
         res.json({
             status: "Failed",

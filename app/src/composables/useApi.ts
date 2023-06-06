@@ -8,8 +8,8 @@ export const useApi = () => {
     const { loading: removeLoading, error: removeError, sendRequest: removeRequest } = useFetch();
 
     const getAll = async () => {
-        const res = await getAllRequest('dishes', { method: 'GET' })
-        return res.data as Dish[];
+        const res = await getAllRequest<{ data: Dish[] }>('dishes', { method: 'GET' })
+        return res?.data ?? [];
     }
 
     const clear = async () => {
@@ -17,7 +17,7 @@ export const useApi = () => {
     }
 
     const add = async (data: Dish) => {
-        return addRequest('dishes', { method: 'PUT', data })
+        return addRequest<{ status: 'OK' | 'Failed', message?: string, data?: Dish }>('dishes', { method: 'PUT', data })
     }
 
     const remove = async (id: string) => {

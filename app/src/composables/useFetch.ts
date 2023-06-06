@@ -6,7 +6,7 @@ export const useFetch = () => {
     const loading = ref<boolean>(false)
 
 
-    const sendRequest = async <T>(endpoint: string, options: { method: string, data?: T }) => {
+    const sendRequest = async <T>(endpoint: string, options: { method: string, data?: unknown }): Promise<T | undefined> => {
         const { method, data } = options
         try {
             loading.value = true;
