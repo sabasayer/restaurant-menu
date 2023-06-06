@@ -1,22 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useApi } from './composables/useApi';
-import { Dish } from './types';
+import TheMenu from './components/TheMenu.vue';
 
-const {getAll} = useApi();
-const dishes = ref<Dish[]>([])
-
-const init = async () => {
-  dishes.value = await getAll();
-}
-
-init()
 
 </script>
 
 <template>
-  
-  <div >
-      {{ dishes }}
-  </div>
+    <TheMenu />
 </template>

@@ -7,12 +7,9 @@ export interface Dish {
     _Changed?: string;
     name: string;
     description: string;
-    price: number;
+    price: string;
     category: EnumCategory;
     availability: EnumAvailabality[];
     active: boolean;
-    /**
-     * minutes
-     */
-    preperationTime: number;
+    preperationTime: string;
 }
