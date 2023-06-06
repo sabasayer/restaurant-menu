@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useApi } from '../composables';
-import { Dish, EnumCategory } from '../types';
+import { Dish, EnumAvailabality, EnumCategory } from '../types';
 import {PencilIcon,TrashIcon} from "@heroicons/vue/20/solid"
 
 const props = defineProps<{item:Dish}>();
@@ -9,6 +9,7 @@ const emit = defineEmits<{(e:'removed',item:Dish):void;(e:'edit',item:Dish):void
 
 const {remove:removeItem} = useApi();
 const category = (value:EnumCategory) => EnumCategory[value]
+const availability = (value:EnumAvailabality) => EnumAvailabality[value]
 
 
 const remove = async () => {
@@ -24,7 +25,6 @@ const edit = () => emit('edit',props.item)
 <template>
     <div class="bg-gray-50 py-6 px-4 rounded-md flex flex-col" :class="{'bg-gray-200':!item.active}">
         <div class="flex-1">
-
             <div class="text-xl font-semibold mb-2">{{ item.name }}</div>
             <div class="text-gray-400">{{ item.description }}</div>
             <div>
@@ -54,6 +54,12 @@ const edit = () => emit('edit',props.item)
                     Preperation Time: 
                 </span>
                 <span>{{ item.preperationTime }}</span>
+            </div>
+            <div>
+                <span class="text-gray-500">
+                    Availibilities:
+                </span>
+                <span v-for="av in item.availability" :key="av" class="bg-indigo-100 px-2 py-1 rounded-mg mr-2">{{ availability(av) }}</span>
             </div>
         </div>
 

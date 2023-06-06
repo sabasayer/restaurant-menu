@@ -37,7 +37,7 @@ const onEdit = (item:DishType) => {
       <div class="mx-auto max-w-7xl sm:px-2 lg:px-8">
         <div class="mx-auto max-w-2xl px-4 lg:max-w-4xl lg:px-0">
           <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Restaurant Menu</h1>
-          <p class="mt-2 text-sm text-gray-500">Manage the restaurant menu here.</p>
+          <p class="mt-2 text-sm text-gray-500 mb-2">Manage the restaurant menu here.</p>
           <button @click="openForm" type="button" class="rounded bg-indigo-600 px-2 py-1 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add New Dish</button>
         </div>
       </div>
