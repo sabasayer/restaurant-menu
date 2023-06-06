@@ -21,7 +21,7 @@ export const useApi = () => {
     }
 
     const remove = async (id: string) => {
-        return removeRequest(`dishes/${id}`, { method: 'DELETE' })
+        return removeRequest<{ status: 'OK' }>(`dishes/${id}`, { method: 'DELETE' })
     }
 
     return {
